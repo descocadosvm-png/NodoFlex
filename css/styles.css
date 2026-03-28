@@ -1,0 +1,328 @@
+/* Tarjetas 3D para sección 'Cómo funciona' */
+.card-3d {
+    background: #181A1D;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 #2563eb22, 0 1.5px 12px 0 #0008;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s, filter 0.25s;
+    perspective: 800px;
+    will-change: transform, box-shadow, filter;
+    position: relative;
+    z-index: 1;
+}
+.card-3d:hover {
+    box-shadow: 0 16px 48px 0 #2563eb44, 0 4px 32px 0 #000a;
+    filter: brightness(1.08) saturate(1.08);
+}
+.card-3d .card-3d-inner {
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+    will-change: transform;
+}
+.card-3d:hover .card-3d-inner {
+    transform: rotateY(var(--rotateY,0deg)) rotateX(var(--rotateX,0deg)) scale(1.04);
+}
+.card-3d .card-3d-glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    background: radial-gradient(circle at var(--glowX,50%) var(--glowY,50%), #60a5fa33 0%, transparent 70%);
+    opacity: 0.7;
+    transition: background 0.2s;
+    z-index: 2;
+}
+/* Animación de movimiento flotante para tarjetas y secciones visuales */
+.animated-float {
+    animation: floatY 3.5s ease-in-out infinite alternate;
+    will-change: transform;
+}
+@keyframes floatY {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-12px) scale(1.015); }
+    100% { transform: translateY(0px) scale(1); }
+}
+/* Sección visual de contacto */
+#contacto-nodoflex {
+    background: linear-gradient(135deg, #1E2124 0%, #121417 60%, #0F1113 100%);
+    position: relative;
+    overflow: hidden;
+}
+#contacto-nodoflex h2 {
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #60a5fa 30%, #38bdf8 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+}
+#contacto-nodoflex form {
+    box-shadow: 0 8px 32px 0 rgba(30, 64, 175, 0.15);
+    border-radius: 1.5rem;
+    border: 1px solid #1e40af33;
+}
+#contacto-nodoflex input,
+#contacto-nodoflex textarea {
+    background: #23272b;
+    border: 1px solid #374151;
+    color: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+#contacto-nodoflex input:focus,
+#contacto-nodoflex textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px #38bdf855;
+}
+#contacto-nodoflex button[type="submit"] {
+    background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1.25rem 0;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 24px 0 #2563eb22;
+}
+#contacto-nodoflex button[type="submit"]:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    transform: scale(1.03);
+}
+#contacto-nodoflex .max-w-xl {
+    box-shadow: 0 8px 32px 0 #2563eb22;
+}
+#contacto-nodoflex a {
+    color: #38bdf8;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+#contacto-nodoflex a:hover {
+    color: #60a5fa;
+}
+/* Tarjetas de Planes */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.plan-card {
+    background: linear-gradient(145deg, #1e2124, #16181a);
+    border: 1px solid var(--gris-acero-claro);
+    border-radius: 15px;
+    padding: 40px;
+    width: 300px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--azul-acento);
+}
+
+.plan-card.featured {
+    border: 2px solid var(--azul-acento);
+    box-shadow: 0 10px 30px rgba(0, 163, 255, 0.1);
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #888;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+ul li {
+    margin: 10px 0;
+    color: #b0b0b0;
+}
+
+/* Botón de Suscripción */
+.btn-subscribe {
+    background-color: var(--azul-acento);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-subscribe:hover {
+    background-color: #0082cc;
+}
+/* --- FORMULARIO PREMIUM --- */
+#contacto input,
+#contacto select {
+    font-size: 1.1rem;
+    background: rgba(24,26,29,0.85);
+    border: 1.5px solid #23272b;
+    border-radius: 0.75rem;
+    color: #e0e0e0;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 0.5rem;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px 0 rgba(0,163,255,0.04);
+}
+#contacto input:focus,
+#contacto select:focus {
+    border-color: #00A3FF;
+    box-shadow: 0 0 0 2px #00A3FF33;
+    outline: none;
+}
+#contacto label {
+    font-weight: 500;
+    color: #b0b0b0;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.2rem;
+}
+#contacto button[type="submit"] {
+    background: linear-gradient(90deg, #00A3FF 0%, #3A8DFF 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1.1rem 0;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 24px 0 rgba(0,163,255,0.10);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+#contacto button[type="submit"]:hover {
+    background: linear-gradient(90deg, #3A8DFF 0%, #00A3FF 100%);
+    transform: scale(1.04);
+}
+.bg-acero-oscuro {
+    background: radial-gradient(circle at top, #1e2124 0%, #121417 100%);
+}
+
+/* Títulos con efecto metálico */
+h1, h2, h3 {
+    background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Resaltado de métricas al pasar el mouse */
+.reveal:hover span {
+    color: #00A3FF;
+    text-shadow: 0 0 20px rgba(0, 163, 255, 0.4);
+    transition: all 0.3s ease;
+}
+/* Paleta de Colores NodoFlex */
+:root {
+    --gris-fondo: #121417;
+    --gris-acero-oscuro: #1E2124;
+    --gris-acero-claro: #3A3F44;
+    --azul-acento: #00A3FF;
+    --texto-principal: #E0E0E0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--texto-principal);
+    overflow-x: hidden;
+}
+
+p {
+    line-height: 1.8; /* Hace que el texto sea más fácil de leer */
+    letter-spacing: 0.5px; /* Un toque de aire entre letras */
+    color: #b0b0b0; /* Un gris suave que no cansa en fondos oscuros */
+}
+
+h2, h3 {
+    text-transform: uppercase; /* Da un look más corporativo */
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Queda detrás de todo */
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* Tipografia y Espaciado de Clase Mundial */
+.seccion-premium {
+    padding: 100px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.titulo-gradiente {
+    background: linear-gradient(180deg, #FFFFFF 0%, #888888 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.texto-descripcion {
+    color: #9CA3AF;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Efecto de Aparicion Suave */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retrasos para que aparezcan una tras otra */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* Estilo de Tarjeta Glass-Steel */
+.tarjeta-valor {
+    background: rgba(30, 33, 36, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.tarjeta-valor:hover {
+    border-color: rgba(0, 163, 255, 0.4);
+    background: rgba(40, 44, 48, 0.6);
+    transform: scale(1.03);
+}

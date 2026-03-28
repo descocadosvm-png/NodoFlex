@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodoFlex - Automatización</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#121417] text-gray-100 font-sans overflow-x-hidden">
+
+    <!-- Logo fijo arriba a la izquierda -->
+    <div style="position:fixed;top:18px;left:-60px;z-index:1001;">
+           <img id="logo-superior" src="imgflez/logonodoflex.png" alt="NodoFlex Logo" style="width:380px;height:auto;filter:none;transition:filter 0.3s,transform 0.3s;will-change:filter,transform;" />
+    </div>
+    </div>
+
+
+    <div id="tsparticles" class="fixed inset-0 z-0"></div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+            <div class="bg-[#1A1C1E]/60 backdrop-blur-xl border border-gray-700/50 px-8 py-3 rounded-full shadow-2xl flex items-center gap-8">
+                <a href="index.html" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="inicio">Inicio</a>
+                <a href="#nosotros" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="nosotros">Nosotros</a>
+                <a href="#casos" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="casos">Éxito</a>
+                <a href="#contacto" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="contacto">Contacto</a>
+
+                <a href="#solicitar-suscripcion" id="btn-solicitar-suscripcion" class="ml-4 bg-blue-600/20 text-blue-400 border border-blue-500/30 px-4 py-1.5 rounded-full text-[10px] uppercase font-bold hover:bg-blue-600 hover:text-white transition-all">
+                    Solicitar Suscripción
+                </a>
+            </div>
+        </nav>
+
+        <!-- Sección Solicitar Suscripción: planes + formulario (única y profesional) -->
+        <section id="solicitar-suscripcion" class="py-24 px-6 bg-[#121417]" style="display:none;">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-blue-400 drop-shadow-lg mb-4 tracking-tight mt-20" style="letter-spacing:-1px;">NUESTROS PLANES</h2>
+                    <p class="text-gray-300 text-xl font-medium mb-2">Selecciona la solución que mejor se adapte a tu empresa, consultorio, estudio o emprendimiento.</p>
+                </div>
+                <div class="pricing-container">
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col md:flex-row gap-10 justify-center items-stretch w-full mb-16">
+                            <div class="plan-card flex-1 min-w-[320px] max-w-md bg-gradient-to-br from-[#181A1D] to-[#23272b] border-2 border-blue-700/30 rounded-3xl shadow-xl p-8 transition-transform hover:scale-105 hover:shadow-2xl hover:border-blue-400/60">
+                                <h3 class="text-2xl font-extrabold text-blue-400 mb-4 tracking-wide uppercase drop-shadow">Plan Inicial</h3>
+                                <ul class="mb-8 space-y-2 text-gray-200 text-base font-medium">
+                                    <li>Automatización básica de procesos (ventas, turnos, stock, recordatorios)</li>
+                                    <li>Integración simple de sistemas</li>
+                                    <li>Soporte por email</li>
+                                </ul>
+                                <button class="btn-subscribe mt-4 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-lg shadow transition-all" data-plan="inicial">Solicitar este plan</button>
+                            </div>
+                            <div class="plan-card featured flex-1 min-w-[320px] max-w-md bg-gradient-to-br from-[#1E2124] to-[#23272b] border-2 border-blue-400 rounded-3xl shadow-2xl p-8 scale-105">
+                                <h3 class="text-2xl font-extrabold text-blue-300 mb-4 tracking-wide uppercase drop-shadow">Plan Pro</h3>
+                                <ul class="mb-8 space-y-2 text-gray-100 text-base font-medium">
+                                    <li>Automatizaciones avanzadas y personalizadas</li>
+                                    <li>Sincronización multi-canal (ventas, agenda, facturación, etc.)</li>
+                                    <li>Soporte prioritario y consultoría</li>
+                                </ul>
+                                <button class="btn-subscribe mt-4 w-full bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 text-white font-bold py-3 rounded-xl text-lg shadow transition-all" data-plan="pro">Solicitar este plan</button>
+                            </div>
+                        </div>
+                        <div class="w-full flex justify-center">
+                            <section id="contacto" class="max-w-lg w-full mx-auto mt-0 p-10 bg-[#1E2124]/80 border border-blue-900/30 rounded-3xl shadow-2xl relative z-10 backdrop-blur-md">
+                                <!-- Logo eliminado del formulario -->
+                                <img src="imgflez/logonodoflex.png" alt="NodoFlex Logo" style="width:200px;height:auto;margin:0 auto 1.5rem auto;filter:none;display:block;" />
+                                <h2 class="text-2xl font-bold text-white mb-6 text-center tracking-tight">Solicitar Acceso a NodoFlex</h2>
+                                <form id="form-nodoflex" class="space-y-6">
+                                    <div class="relative">
+                                        <input type="text" id="nombre" name="nombre" required placeholder=" "
+                                            class="peer w-full bg-[#181A1D]/80 border border-gray-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition placeholder-transparent" />
+                                        <label for="nombre" class="absolute left-5 top-4 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-400 bg-[#1E2124]/80 px-1">Nombre completo o empresa</label>
+                                    </div>
+                                    <div class="relative">
+                                        <input type="email" id="email" name="email" required placeholder=" "
+                                            class="peer w-full bg-[#181A1D]/80 border border-gray-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition placeholder-transparent" />
+                                        <label for="email" class="absolute left-5 top-4 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-400 bg-[#1E2124]/80 px-1">Correo electrónico de contacto</label>
+                                    </div>
+                                    <div class="relative">
+                                        <select id="plan" name="plan" required
+                                            class="w-full bg-[#181A1D]/80 border border-gray-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition">
+                                            <option value="basico">Plan Básico</option>
+                                            <option value="premium">Plan Premium</option>
+                                            <option value="consultoria">Consultoría personalizada</option>
+                                        </select>
+                                        <label for="plan" class="absolute left-5 -top-3 text-xs text-blue-400 bg-[#1E2124]/80 px-1">Plan de Interés</label>
+                                    </div>
+                                    <button type="submit" 
+                                        class="w-full bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.03] shadow-lg shadow-blue-900/30 text-lg tracking-wide">
+                                        Enviar Solicitud
+                                    </button>
+                                    <p id="mensaje-estado" class="text-sm text-center mt-4 hidden"></p>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                <!-- Formulario premium con logo -->
+            </div>
+        </section>
+</style>
+<script>
+// Efecto 3D animado para el logo del formulario
+const logoForm = document.getElementById('logo-form');
+if (logoForm) {
+    logoForm.addEventListener('mousemove', function(e) {
+        const rect = logoForm.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotY = ((x / rect.width) - 0.5) * 24; // -12 a +12
+        const rotX = ((y / rect.height) - 0.5) * -18; // +9 a -9
+        logoForm.style.transform = `perspective(600px) rotateY(${rotY}deg) rotateX(${rotX}deg) scale(1.08)`;
+        logoForm.style.filter = 'drop-shadow(0 0 32px #00A3FF99) brightness(1.18)';
+    });
+    logoForm.addEventListener('mouseleave', function() {
+        logoForm.style.transform = 'perspective(600px) rotateY(-10deg) scale(1.05)';
+        logoForm.style.filter = 'none';
+    });
+}
+// Efecto 3D e iluminación para el logo superior
+const logoSuperior = document.getElementById('logo-superior');
+if (logoSuperior) {
+    logoSuperior.addEventListener('mousemove', function(e) {
+        const rect = logoSuperior.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotY = ((x / rect.width) - 0.5) * 24; // -12 a +12
+        const rotX = ((y / rect.height) - 0.5) * -18; // +9 a -9
+        logoSuperior.style.transform = `perspective(600px) rotateY(${rotY}deg) rotateX(${rotX}deg) scale(1.08)`;
+        logoSuperior.style.filter = 'drop-shadow(0 0 48px #00A3FFcc) brightness(1.22)';
+    });
+    logoSuperior.addEventListener('mouseleave', function() {
+        logoSuperior.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) scale(1)';
+        logoSuperior.style.filter = 'none';
+    });
+}
+</script>
+
+        <main class="flex-grow flex items-center justify-center px-6">
+            <div class="text-center max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight" style="margin-top:7.5rem;">
+                    Automatización <span class="text-blue-500">que fluye.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
+                    NodoFlex conecta tus ventas y stock sin fricción. 
+                    Simplifica tu operación, maximiza tus resultados.
+                </p>
+            </div>
+        </main>
+
+        <section id="nosotros" class="py-24 px-6 bg-[#121417]">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 reveal">
+                    <h2 class="text-blue-500 font-bold uppercase tracking-[0.3em] text-xs mb-4">Arquitectura NodoFlex</h2>
+                    <h3 class="text-4xl font-extrabold text-white mb-6 leading-tight">Más que automatización, una infraestructura inteligente.</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        NodoFlex nació para eliminar la fricción operativa en cualquier industria. Integramos flujos de datos, agendas, ventas, turnos y procesos críticos en un solo punto de control, adaptándonos a las necesidades de cada cliente.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Nuestra tecnología está diseñada bajo estándares de resiliencia y seguridad, permitiendo que empresas, consultorios, estudios y comercios operen con máxima eficiencia y precisión.
+                    </p>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4 reveal delay-200">
+                    <div class="p-6 bg-[#1E2124] border border-gray-800 rounded-2xl">
+                        <span class="text-blue-500 font-bold block mb-2">01. Integridad Total</span>
+                        <p class="text-xs text-gray-500">Garantizamos que ningún dato se pierda entre tus sistemas, agendas o plataformas.</p>
+                    </div>
+                    <div class="p-6 bg-[#1E2124] border border-gray-800 rounded-2xl">
+                        <span class="text-blue-500 font-bold block mb-2">02. Seguridad Avanzada</span>
+                        <p class="text-xs text-gray-500">Encriptación y protección de datos en todos los procesos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Diferenciales ahora dentro de Nosotros -->
+        <div class="max-w-7xl mx-auto mt-20">
+            <div class="text-center mb-16 reveal">
+                <h3 class="text-3xl font-black text-white">Por qué elegir NodoFlex</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 tarjeta-valor rounded-3xl reveal delay-100 animated-float">
+                    <h4 class="text-white font-bold text-xl mb-4">Integridad Total</h4>
+                    <p class="text-gray-500 text-sm">Garantizamos que ningún dato se pierda entre tus sistemas, agendas o plataformas.</p>
+                </div>
+                <div class="p-8 tarjeta-valor rounded-3xl reveal delay-200 animated-float" style="animation-delay:0.2s;">
+                    <h4 class="text-white font-bold text-xl mb-4">Seguridad Avanzada</h4>
+                    <p class="text-gray-500 text-sm">Encriptación y protección de datos en todos los procesos.</p>
+                </div>
+                <div class="p-8 tarjeta-valor rounded-3xl reveal delay-300 animated-float" style="animation-delay:0.4s;">
+                    <h4 class="text-white font-bold text-xl mb-4">Soporte Estratégico</h4>
+                    <p class="text-gray-500 text-sm">No solo resolvemos problemas, diseñamos soluciones a medida para tu operación.</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="metricas" class="py-20 bg-[#121417] relative overflow-hidden">
+                    <!-- Sección Cómo funciona -->
+                    <section id="como-funciona" class="py-24 px-6 bg-[#181A1D]">
+                        <div class="max-w-6xl mx-auto text-center mb-16">
+                            <h2 class="text-3xl md:text-4xl font-black text-white mb-4">¿Cómo funciona NodoFlex?</h2>
+                            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Automatiza cualquier proceso en 3 pasos simples, sin importar el rubro o tamaño de tu empresa.</p>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                            <div class="card-3d" tabindex="0">
+                                <div class="card-3d-inner p-8 flex flex-col items-center">
+                                    <div class="text-5xl mb-4 text-blue-400">1</div>
+                                    <h3 class="font-bold text-xl mb-2 text-white">Conecta tus sistemas</h3>
+                                    <p class="text-gray-400">Integración fácil con ventas, agenda, stock, turnos, facturación, WhatsApp y más.</p>
+                                </div>
+                                <div class="card-3d-glow"></div>
+                            </div>
+                            <div class="card-3d" tabindex="0">
+                                <div class="card-3d-inner p-8 flex flex-col items-center">
+                                    <div class="text-5xl mb-4 text-blue-400">2</div>
+                                    <h3 class="font-bold text-xl mb-2 text-white">Define tus reglas</h3>
+                                    <p class="text-gray-400">Automatiza tareas, recordatorios, validaciones y flujos según tus necesidades.</p>
+                                </div>
+                                <div class="card-3d-glow"></div>
+                            </div>
+                            <div class="card-3d" tabindex="0">
+                                <div class="card-3d-inner p-8 flex flex-col items-center">
+                                    <div class="text-5xl mb-4 text-blue-400">3</div>
+                                    <h3 class="font-bold text-xl mb-2 text-white">Olvídate del trabajo manual</h3>
+                                    <p class="text-gray-400">NodoFlex ejecuta, monitorea y reporta todo en tiempo real. Tú solo ves resultados.</p>
+                                </div>
+                                <div class="card-3d-glow"></div>
+                            </div>
+                        </div>
+                    </section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-12 text-center">
+                    <div class="reveal delay-100">
+                        <span class="text-5xl font-black text-white block mb-2">+99.9%</span>
+                        <p class="text-blue-500 uppercase tracking-widest text-[10px] font-bold">Uptime Operativo</p>
+                        <p class="text-gray-500 text-xs mt-2">Disponibilidad constante para tus flujos y agendas.</p>
+                    </div>
+                    <div class="reveal delay-200">
+                        <span class="text-5xl font-black text-white block mb-2">-40%</span>
+                        <p class="text-blue-500 uppercase tracking-widest text-[10px] font-bold">Costos Operativos</p>
+                        <p class="text-gray-500 text-xs mt-2">Reducción de tareas manuales en cualquier rubro.</p>
+                    </div>
+                    <div class="reveal delay-300">
+                        <span class="text-5xl font-black text-white block mb-2">150ms</span>
+                        <p class="text-blue-500 uppercase tracking-widest text-[10px] font-bold">Latencia de Respuesta</p>
+                        <p class="text-gray-500 text-xs mt-2">Validación y automatización en tiempo real.</p>
+                    </div>
+                    <div class="reveal delay-400">
+                        <span class="text-5xl font-black text-white block mb-2">0</span>
+                        <p class="text-blue-500 uppercase tracking-widest text-[10px] font-bold">Errores de Agenda/Inventario</p>
+                        <p class="text-gray-500 text-xs mt-2">Sincronización perfecta entre sistemas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="casos" class="py-24 px-6 bg-[#0F1113] mb-24"></section>
+        <!-- Sección Testimonios -->
+        <section id="testimonios" class="py-24 px-6 bg-[#181A1D]">
+            <div class="max-w-6xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Lo que dicen nuestros clientes</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Empresas, consultorios y estudios ya confían en NodoFlex para automatizar y crecer.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                <div class="bg-[#23272b] rounded-2xl p-8 flex flex-col items-center shadow-lg">
+                    <div class="text-4xl mb-4 text-blue-400">★ ★ ★ ★ ★</div>
+                    <p class="text-gray-300 italic mb-4">“NodoFlex nos permitió reducir errores y olvidos en la agenda de pacientes. Ahora todo fluye solo.”</p>
+                    <div class="font-bold text-white">Dra. Laura G., Consultorio Médico</div>
+                </div>
+                <div class="bg-[#23272b] rounded-2xl p-8 flex flex-col items-center shadow-lg">
+                    <div class="text-4xl mb-4 text-blue-400">★ ★ ★ ★ ★</div>
+                    <p class="text-gray-300 italic mb-4">“Automatizamos ventas y stock en 1 semana. El soporte es excelente y siempre proponen mejoras.”</p>
+                    <div class="font-bold text-white">Martín P., Distribuidora Mayorista</div>
+                </div>
+                <div class="bg-[#23272b] rounded-2xl p-8 flex flex-col items-center shadow-lg">
+                    <div class="text-4xl mb-4 text-blue-400">★ ★ ★ ★ ★</div>
+                    <p class="text-gray-300 italic mb-4">“NodoFlex nos ayudó a integrar facturación, agenda y WhatsApp. ¡Ahorro de tiempo real!”</p>
+                    <div class="font-bold text-white">Estudio Contable Rivas</div>
+                </div>
+            </div>
+
+        <footer class="bg-[#0A0C0E] border-t border-gray-800 pt-20 pb-10">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+                <div class="col-span-2">
+                    <h2 class="text-2xl font-black text-white mb-6 tracking-tighter">NODOFLEX</h2>
+                    <p class="text-gray-500 max-w-sm leading-relaxed text-sm">
+                        Líderes en automatización inteligente para empresas, consultorios, estudios y comercios. Transformamos procesos complejos en flujos de trabajo invisibles y eficientes.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Navegación</h4>
+                    <ul class="text-gray-500 space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-blue-500 transition">Ecosistema</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">Suscripciones</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">Documentación API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Legal</h4>
+                    <ul class="text-gray-500 space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-blue-500 transition">Privacidad de Datos</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">Términos de Servicio</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">SLA de Disponibilidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-gray-900 flex justify-between items-center text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+                <p>© 2026 NodoFlex. Todos los derechos reservados.</p>
+                <p>Ingeniería hecha en Argentina.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    // Mostrar solo la sección de suscripción al hacer clic en el botón
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('btn-solicitar-suscripcion');
+        var seccion = document.getElementById('solicitar-suscripcion');
+        var body = document.body;
+        // Ocultar la sección al cargar
+        seccion.style.display = 'none';
+
+        // Guardar el estado original de display de los hijos
+        var hijos = Array.from(body.children);
+        var displayOriginal = hijos.map(function(el) { return el.style.display || ''; });
+
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            hijos.forEach(function(el) {
+                if (!el.contains(seccion) && el !== seccion) {
+                    el.style.display = 'none';
+                }
+            });
+            seccion.style.display = 'block';
+            seccion.style.margin = '0 auto';
+            seccion.style.minHeight = '100vh';
+            seccion.style.paddingTop = '60px';
+            window.scrollTo({top:0,behavior:'smooth'});
+        });
+
+        // Restaurar todo al hacer clic en cualquier nav-link (excepto Solicitar Suscripción)
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                hijos.forEach(function(el, idx) {
+                    el.style.display = displayOriginal[idx];
+                });
+                seccion.style.display = 'none';
+            });
+        });
+    });
+    </script>
+</body>
+</html>
