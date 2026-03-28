@@ -11,7 +11,7 @@
 
     <!-- Logo fijo arriba a la izquierda -->
     <div style="position:fixed;top:18px;left:-60px;z-index:1001;">
-           <img id="logo-superior" src="imgflez/logonodoflex.png" alt="NodoFlex Logo" style="width:380px;height:auto;filter:none;transition:filter 0.3s,transform 0.3s;will-change:filter,transform;" />
+           <img id="logo-superior" src="imgflez/logonodoflex.png" alt="NodoFlex Logo" style="width:380px;height:auto;filter:none;transition:filter 0.3s,transform 0.3s,opacity 0.5s;will-change:filter,transform,opacity;opacity:1;" />
     </div>
     </div>
 
@@ -24,7 +24,7 @@
                 <a href="index.html" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="inicio">Inicio</a>
                 <a href="#nosotros" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="nosotros">Nosotros</a>
                 <a href="#casos" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="casos">Éxito</a>
-                <a href="#contacto" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="contacto">Contacto</a>
+                <a href="#" id="btn-contacto" class="text-xs uppercase tracking-widest text-gray-400 hover:text-blue-400 transition-colors font-semibold nav-link" data-section="contacto">Contacto</a>
 
                 <a href="#solicitar-suscripcion" id="btn-solicitar-suscripcion" class="ml-4 bg-blue-600/20 text-blue-400 border border-blue-500/30 px-4 py-1.5 rounded-full text-[10px] uppercase font-bold hover:bg-blue-600 hover:text-white transition-all">
                     Solicitar Suscripción
@@ -33,7 +33,7 @@
         </nav>
 
         <!-- Sección Solicitar Suscripción: planes + formulario (única y profesional) -->
-        <section id="solicitar-suscripcion" class="py-24 px-6 bg-[#121417]" style="display:none;">
+        <section id="solicitar-suscripcion" class="py-24 px-6 bg-[#121417] hidden">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-blue-400 drop-shadow-lg mb-4 tracking-tight mt-20" style="letter-spacing:-1px;">NUESTROS PLANES</h2>
@@ -76,6 +76,11 @@
                                         <input type="email" id="email" name="email" required placeholder=" "
                                             class="peer w-full bg-[#181A1D]/80 border border-gray-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition placeholder-transparent" />
                                         <label for="email" class="absolute left-5 top-4 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-400 bg-[#1E2124]/80 px-1">Correo electrónico de contacto</label>
+                                    </div>
+                                    <div class="relative">
+                                        <input type="tel" id="telefono" name="telefono" required pattern="[0-9\s\-\+()]{8,}" placeholder=" "
+                                            class="peer w-full bg-[#181A1D]/80 border border-gray-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition placeholder-transparent" />
+                                        <label for="telefono" class="absolute left-5 top-4 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-green-400 bg-[#1E2124]/80 px-1">Número telefónico</label>
                                     </div>
                                     <div class="relative">
                                         <select id="plan" name="plan" required
@@ -142,8 +147,8 @@ if (logoSuperior) {
                     Automatización <span class="text-blue-500">que fluye.</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-                    NodoFlex conecta tus ventas y stock sin fricción. 
-                    Simplifica tu operación, maximiza tus resultados.
+                    Impulsamos la eficiencia de tu empresa con automatización inteligente y procesos a medida.<br>
+                    Descubre cómo la tecnología puede transformar tu negocio, optimizar tu tiempo y potenciar tu crecimiento.
                 </p>
             </div>
         </main>
@@ -255,9 +260,8 @@ if (logoSuperior) {
             </div>
         </section>
 
-        <section id="casos" class="py-24 px-6 bg-[#0F1113] mb-24"></section>
         <!-- Sección Testimonios -->
-        <section id="testimonios" class="py-24 px-6 bg-[#181A1D]">
+        <section id="casos" class="py-24 px-6 bg-[#181A1D]">
             <div class="max-w-6xl mx-auto text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Lo que dicen nuestros clientes</h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto">Empresas, consultorios y estudios ya confían en NodoFlex para automatizar y crecer.</p>

@@ -1,3 +1,35 @@
+// Mostrar sección de suscripción y hacer scroll al formulario al hacer clic en 'Contacto'
+document.addEventListener('DOMContentLoaded', function () {
+    const btnContacto = document.getElementById('btn-contacto');
+    const seccionSuscripcion = document.getElementById('solicitar-suscripcion');
+    const form = document.getElementById('form-nodoflex');
+    if (btnContacto && seccionSuscripcion && form) {
+        btnContacto.addEventListener('click', function (e) {
+            e.preventDefault();
+            seccionSuscripcion.classList.remove('hidden');
+            setTimeout(function() {
+                const yOffset = -60; // Ajusta según el alto del navbar
+                const y = form.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }, 100);
+        });
+    }
+});
+// Ocultar logo superior suavemente al hacer scroll
+document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.getElementById('logo-superior');
+    if (logo) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 60) {
+                logo.style.opacity = '0';
+                logo.style.pointerEvents = 'none';
+            } else {
+                logo.style.opacity = '1';
+                logo.style.pointerEvents = '';
+            }
+        });
+    }
+});
 // --- Efecto 3D Parallax en tarjetas de "Cómo funciona" ---
 document.addEventListener('DOMContentLoaded', function () {
     const cards = document.querySelectorAll('.card-3d');
